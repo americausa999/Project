@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:sprite;/Areas/Epx/Themes/Windows/Content:0&amp;amp;v=DCE5263ED5A648DE1D49E7B7A5BA8262" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:sprite,1:LinkList,1:SelectLocaleFromPopUp;/Areas/Epx/Themes/Windows/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=65AE3624E736B57101EBD2B6AEBD2F3F" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Appointment Console Application</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" /><link href="description/915b440d-ca24-4cf2-bd22-23ccce2b5701Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/windowsdesktop/content/windowsdesktop/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/windowsdesktop/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Appointment Console Application</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            desktop
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/13/2015</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/windowsdesktop/Appointment-Console-f113af65">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p><em><span style="white-space:pre"></span>A Light Weight App that takes appointment and store into the file and search too. This app Understand Concept making of Console Project.&nbsp;</em></p>
+<h1>Description</h1>
+<p><span style="white-space:pre"></span>This Sample will teach you making of Console Projects in C# with using of File I/O. &nbsp;This App have every single feature like add appointment, view appointment, search etc... This app contains background changing
+ coding &nbsp;and File System coding. This app automatically makes directories in your system and deleting appointment file in your system without any problem. It easy to handle and more feature addons.
+<img id="134933" src="description/Welcome Page of Appointment.JPG" alt="" width="642" height="301"></p>
+<p>&nbsp;</p>
+<p><em>This is Welcome page of Appointment Application. A easy interface which say's Everything about Task. Any One can run this app with their easy dashboard.<img id="134934" src="description/Adding Appointment Screen.JPG" alt="" width="636" height="288"></em></p>
+<p><em>Adding Apointment page will help you to add appointment. This page have autocorrect option which correct your date. Only Time need to add manually with AM/PM. Enter Note option is not compulsary you can skip through enter button.<img id="134935" src="description/View Appointment Screen.JPG" alt="" width="613" height="440"></em></p>
+<p><em>View Appointment will View your appointment Easily Just you have to enter only filename exactly without any extension then you can view your appointment. if you want too continue viewing the enter 'Y' or 'N' for back to dashboard.<img id="134936" src="description/Search Appointment Screen.JPG" alt="" width="634" height="256"></em></p>
+<p><em>This search feature is good. We can search &nbsp;by Year. if You Entering 2015 then it show data related 2015 as shown in figure.</em></p>
+<p><em><img id="134937" src="description/Deleting File.JPG" alt="" width="587" height="240"></em></p>
+<p><em>Deleting files feature will help you to delete file seperately by just typing filename exactly as per shown as same without any extension. This will notify you whether your file deletion is successfull or not.</em></p>
+<p><em><img id="134938" src="description/Clear files.JPG" alt="" width="590" height="207"></em></p>
+<p><em>This Clearing Wizard will delete your all Files except Directory. this option will clearing all your files which stored in appointment Folder.</em></p>
+<p><em><img id="134939" src="description/Deleting Directory.JPG" alt="" width="634" height="254"></em></p>
+<p><em>Deleting Directoy will totally delete your file or folder as Appointment app created when you created your first appointment. this will Warn you whether you want to delete file or not. Remember this will delete your Entire directly of Your Appointment
+ Foder. it is safe.</em></p>
+<p>&nbsp;</p>
+<p><em><img id="134940" src="description/About.JPG" alt=""></em></p>
+<p><em>This About window will show the Programmer name's, Email and Version as per above window shown. &nbsp;</em></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>
